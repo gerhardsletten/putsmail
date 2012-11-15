@@ -19,7 +19,7 @@ Putsmail::Application.routes.draw do
     match "auth/:provider/callback", to: "sessions#create"
     match "auth/failure", to: redirect("/")
     match "signout", to: "sessions#destroy", as: "signout"
-    get "tests", to: "test_mails#index"
+    resources :tests, controller: "test_mails", only: [:index, :show]
   end
 
   get "/test_mails/:id" , to: "site#old_gallery_item"

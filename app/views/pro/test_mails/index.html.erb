@@ -4,7 +4,7 @@
       <% @mails.each do | mail | %>
         <li class="span3" style="<%= cycle "clear:both", "", "" %>">
         <div class="thumbnail">
-          <a href="/tests/<%= mail.token %>"><img alt="<%= "Screenshot #{mail.id}" %>" src="<%= url2png_image_url(gallery_url(mail, updated_at: mail.updated_at.to_i), "260x180") %>" class="lazy" width="260" height="180"></a>
+          <a href="/tests/<%= mail.token %>"><img alt="<%= "Screenshot #{mail.id}" %>" src="<%= url2png_image_url(pro_test_url(mail.token, updated_at: mail.updated_at.to_i), "260x180") %>" class="lazy" width="260" height="180"></a>
         </div>
         </li>
       <% end %>
