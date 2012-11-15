@@ -8,6 +8,7 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
     "click #test_email_in_gallery":       "saveGalleryPreferences"
     "click #test_email_make_css_inline":  "saveCSSPreferences"
     "click #button_add_recipient":        "newRecipient"
+    "click #button_remove_test_mail":     "removeTestMail"
     "keyup #test_mail_users0":            "newRecipientIfEnter"
     "click #new_window_preview":          "newWindowPreview"
     "change #body_preview_resolution":    "changeResolution"
@@ -126,6 +127,10 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
       error: (model, response) =>
         $.noty.close()
         @handleError model, response
+
+  removeTestMail: ->
+    @model.destroy success: ->
+      window.location.href = "/"
 
   clearPreviousErrors: ->
     $("span.error_message").remove()

@@ -10,7 +10,7 @@ Putsmail::Application.routes.draw do
 
   namespace :api do
     put "/add_to_gallery"      , to: "test_mails#add_to_gallery"
-    resources :test_mails      , only: [:create, :show, :update]
+    resources :test_mails      , only: [:create, :show, :update, :destroy]
     resources :test_mail_users , except: [:edit]
     resources :check_htmls     , only: [:create]
   end

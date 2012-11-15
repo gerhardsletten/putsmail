@@ -24,6 +24,13 @@ class Api::TestMailsController < ApplicationController
     respond_with test_mail
   end
 
+  def destroy
+    test_mail = TestMail.find params[:id]
+    test_mail.destroy
+    cookies.delete :last_test_mail_id
+    respond_with test_mail
+  end
+
   private
 
   def save_test_mail_cookie token
