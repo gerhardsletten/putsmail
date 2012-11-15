@@ -1,0 +1,2 @@
+module Pro::TestMailsHelper
+end

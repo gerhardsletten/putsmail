@@ -1,0 +1,2 @@
+module Pro::SessionsHelper
+end

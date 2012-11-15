@@ -2,6 +2,7 @@
 
 class Api::TestMailsController < ApplicationController
   respond_to :json
+  before_filter :adds_user_references, only: [:create, :update]
 
   def create
     test_mail = TestMail.create params[:test_mail]
@@ -27,5 +28,11 @@ class Api::TestMailsController < ApplicationController
 
   def save_test_mail_cookie token
     cookies[:last_test_mail_id] = {value: token, expires: 3.months.from_now}
+  end
+
+  def adds_user_references
+    if params[:test_mail] && current_user
+      params[:test_mail][:user_id] = current_user.id
+    end
   end
 end

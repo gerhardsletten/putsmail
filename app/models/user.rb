@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     email_format: true , allow_blank: false
 
   has_many :test_mail_users, :dependent => :destroy
+  has_many :test_mails
 
   before_create :create_user_token
 
@@ -15,6 +16,27 @@ class User < ActiveRecord::Base
 
   def unsubscribe!
     update_attributes subscribed: false
+  end
+
+  def self.from_facebook facebook
+    user = find_or_initialize_from_facebook facebook
+    user.provider         = "facebook"
+    user.uid              = facebook.me["id"]
+    user.name             = facebook.me["name"]
+    user.mail             = facebook.me["email"]
+    user.oauth_token      = facebook.access_token
+    user.oauth_expires_at = Time.at facebook.expires_in
+    user.save!
+    user
+  end
+
+  private
+
+  def self.find_or_initialize_from_facebook facebook
+    where("(uid = ? AND provider = ?) OR mail = ?",
+          facebook.me["id"],
+          "facebook",
+          facebook.me["email"]).first || new
   end
 
   private

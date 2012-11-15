@@ -24,6 +24,41 @@
      <% if params[:token] %>
        <META name="robots" content="NOINDEX, NOFOLLOW" />
      <% end %>
+    <script>
+      $(function(){
+
+        FB.init({ appId: "<%= facebook_app_id %>", cookie: true, status: true, "show-faces": true });
+
+        $("#sign-in").live("click", function(event){
+          event.preventDefault();
+          FB.login(function(response){
+            if(response.authResponse){
+              window.location.href = "/pro/auth/facebook/callback?" + $.param(response.authResponse);
+            }
+          }, {perms: "email"});
+        });
+
+        $("#sign-out").live("click", function(event){
+          event.preventDefault();
+          FB.getLoginStatus(function(response){
+            if(response.authResponse){
+              FB.logout();
+              window.location.href = "/pro/signout";
+            }
+          });
+        });
+      });
+    </script>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <div id="fb-root"></div>
+    <script type="application/container-content" id="login-container-content">
+    <% if current_user %>
+      <a href="/pro/tests"><%= current_user.name %></a>&nbsp;|&nbsp;<a href="#" id="sign-out">Logout</a>
+    <% else %>
+      <a href="#" id="sign-in"><img src="/images/fb-login-button.png"/></a>
+    </a>
+    <% end %>
+    </script>
    </head>
    <body>
      <div id="fb-root"></div>
