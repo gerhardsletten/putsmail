@@ -27,6 +27,7 @@
     <script>
       $(function(){
         if(typeof FB === "undefined"){
+          alert("teste");
           return;
         }
         FB.init({ appId: "<%= facebook_app_id %>", cookie: true, status: true, "show-faces": true });
@@ -45,8 +46,8 @@
           FB.getLoginStatus(function(response){
             if(response.authResponse){
               FB.logout();
-              window.location.href = "/pro/signout";
             }
+            window.location.href = "/pro/signout";
           });
         });
       });
@@ -57,7 +58,8 @@
     <% if current_user %>
       <a href="/pro/tests"><%= current_user.name %></a>&nbsp;|&nbsp;<a href="#" id="sign-out">Logout</a>
     <% else %>
-      <a href="#" id="sign-in"><img src="/images/fb-login-button.png"/></a>
+      <a href="#" id="sign-in"><img src="/images/fb-login-button.png"/></a><br/>
+      Login with Facebook to create your own private gallery.
     </a>
     <% end %>
     </script>
