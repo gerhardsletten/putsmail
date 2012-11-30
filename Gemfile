@@ -8,6 +8,7 @@ gem "active_attr"
 gem "backbone-on-rails"
 gem "newrelic_rpm"
 gem "url2png"
+gem "amazon-ses-mailer"
 
 
 group :production do

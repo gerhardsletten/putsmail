@@ -52,7 +52,15 @@ Putsmail::Application.configure do
 
   # Don't fallback to assets pipeline
   config.assets.compile = true
-  
+
   # Generate digests for assets URLs
   config.assets.digest = true
+
+
+  config.after_initialize do
+    ActionMailer::Base.tap do |am|
+      am.delivery_method = AmazonSes::Mailer.new access_key:  ENV["aws_access_key"], secret_key: ENV["aws_secret_access_key"]
+      am.perform_deliveries = true
+    end
+  end
 end

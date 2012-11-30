@@ -14,7 +14,7 @@ Putsmail::Application.configure do
   # config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
+  # Don"t care if the mailer can"t send
   config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger
@@ -28,5 +28,13 @@ Putsmail::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.after_initialize do
+    ActionMailer::Base.tap do |am|
+      am.delivery_method = :sendmail
+      am.perform_deliveries = true
+      am.raise_delivery_errors = true
+    end
+  end
 end
 
