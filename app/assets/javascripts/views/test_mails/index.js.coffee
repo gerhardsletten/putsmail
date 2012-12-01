@@ -43,7 +43,13 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
 
   afterRender: ->
     @editor = CodeMirror.fromTextArea document.getElementById("test_mail_body"),
-      mode: "text/html", tabMode: "indent", theme: "myeclipse", onChange: @updatePreview, height: 150
+      mode: "text/html",
+      tabMode: "indent",
+      theme: "myeclipse",
+      onChange: @updatePreview,
+      height: 150,
+      lineNumbers: true,
+      lineWrapping: true
 
     if @model.get "body"
       @editor.setValue @model.get("body")
