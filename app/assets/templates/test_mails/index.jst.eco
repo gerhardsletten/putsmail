@@ -26,7 +26,7 @@
     </div>
   </div>
   <div class="control-group">
-    <label class="control-label" for="textarea">Body:</label>
+    <label class="control-label" for="textarea">Body:<br><small>paste your html code here</small></label>
     <div class="controls">
 <textarea class="input-xxlarge" id="test_mail_body" name="body" rows="14">
 <html>
