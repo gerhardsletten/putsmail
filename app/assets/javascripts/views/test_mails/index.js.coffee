@@ -15,7 +15,7 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
 
   initialize: ->
     @bind "rendered", @afterRender, this
-    @testMailUsersCollection = new Putsmail.Collections.TestMailUsers()
+    @testMailUsersCollection = new Putsmail.Collections.TestMailUsers
     @testMailUsersView       = new Putsmail.Views.TestMailUsersIndex collection: @testMailUsersCollection
     @testMailUsersCollection.fetch()
 
@@ -25,9 +25,7 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
 
   newRecipientIfEnter: (event) ->
     keycode = event.keyCode || event.which
-    if keycode == 13
-      @newRecipient event
-
+    @newRecipient event if keycode == 13
 
   newRecipient: (event) ->
     event.preventDefault()
@@ -100,9 +98,9 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
 
         $("#html_warnings").html(checkHtmlView.render().el)
 
-        $.noty.close()
+        @closeNoty()
       error: (model, response) ->
-        $.noty.close()
+        @closeNoty()
 
   sendTest: (event) ->
     event.preventDefault()
@@ -128,10 +126,10 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
 
     @model.save data,
       wait: true
-      success: (model, response) ->
-        $.noty.close()
+      success: (model, response) =>
+        @closeNoty()
       error: (model, response) =>
-        $.noty.close()
+        @closeNoty()
         @handleError model, response
 
   removeTestMail: ->
@@ -151,6 +149,11 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
           if input.length > 0
             input.parent().parent().addClass "error"
             input.after "<span class=\"help-inline error_message\">#{message}</span>"
+
+  closeNoty: ->
+    setTimeout ->
+      $.noty.close()
+    , 2000
 
   showNoty: (message) ->
     $.noty text: message, speed: 100, closeable: true, type: "alert", layout: "topRight", timeout: false, theme: "mitgux"
