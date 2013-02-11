@@ -19,12 +19,12 @@ class TestMail < ActiveRecord::Base
                              limit(21).
                              order("updated_at DESC")
 
-  def self.total_sent_count
+  def self.emails_sent_count
     # 32977 isn't a magic number, it is the total sent in the Puts Mail V1
     # Puts Mail V1 28/03/2012 - http://f.cl.ly/items/3A1s3H0E2w2i3e210Y1f/Screen%20Shot%202012-03-28%20at%2011.05.21%20AM.png
     # putsmail.heroku.com
-    total_sent_puts_mail_v1 = 32977
-    TestMail.sum("sent_count") + total_sent_puts_mail_v1
+    emails_sent_puts_mail_v1 = 32977
+    TestMail.sum("sent_count") + emails_sent_puts_mail_v1
   end
 
   protected

@@ -12,12 +12,6 @@ describe GalleriesController do
       public_mails.should_receive(:all)
       get "index"
     end
-
-    it "loads total sent count" do
-      public_mails.stub :all
-      TestMail.should_receive :total_sent_count
-      get "index"
-    end
   end
 
   describe "#show" do

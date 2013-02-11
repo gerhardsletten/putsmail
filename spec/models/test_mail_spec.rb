@@ -9,12 +9,12 @@ describe TestMail do
     its(:token) { should be_present }
   end
 
-  describe "#total_sent_count" do
-    it "calculates the total sent"  do
-      total_sent_puts_mail_v1 = 32977
-      sent_count              = 1000
+  describe "#emails_sent_count" do
+    it "calculates total sent"  do
+      emails_sent_puts_mail_v1 = 32977
+      sent_count               = 1000
       TestMail.stub(:sum).with("sent_count").and_return(sent_count)
-      expect(TestMail.total_sent_count).to eq (sent_count + total_sent_puts_mail_v1)
+      expect(TestMail.emails_sent_count).to eq (sent_count + emails_sent_puts_mail_v1)
     end
   end
 

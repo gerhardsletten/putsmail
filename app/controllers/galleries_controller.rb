@@ -1,7 +1,6 @@
 class GalleriesController < ApplicationController
   def index
-    @mails            = TestMail.public_mails.all
-    @total_sent_count = TestMail.total_sent_count
+    @mails = TestMail.public_mails.all
   end
 
   def show
@@ -9,3 +8,4 @@ class GalleriesController < ApplicationController
     render "show", layout: false
   end
 end
+
