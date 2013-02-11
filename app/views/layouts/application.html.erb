@@ -59,16 +59,6 @@
     </script>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
     <div id="fb-root"></div>
-    <script type="application/container-content" id="login-container-content">
-    <% if current_user %>
-      <a href="/pro/tests"><%= current_user.name %></a>&nbsp;|&nbsp;<a href="#" id="sign-out">Logout</a><br/>
-      <%= link_to "Subscribe to PRO", new_pro_subscription_path %>
-    <% else %>
-      <a href="#" id="sign-in"><img src="/images/fb-login-button.png"/></a><br/>
-      Login with Facebook to create your own private gallery.
-    </a>
-    <% end %>
-    </script>
    </head>
    <body>
      <div id="fb-root"></div>
@@ -79,9 +69,6 @@
        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=242262269176125";
        fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));</script>
-
-     <a href="https://github.com/phstc/putsmail"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/camo.github.com/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
-
      <div class="container">
        <div class="page-header">
          <div class="row">
@@ -94,6 +81,14 @@
            <div class="span2">
              <a href="/galleries" class="btn-medium btn btn-info" style="font-size: 18px">Gallery<br/><span style="font-size: 12px">Awesome e-mails by users</span></a>
            </div>
+           <div class="span2">
+            <% if current_user %>
+              <a href="/pro/tests"><%= current_user.name %></a>&nbsp;|&nbsp;<a href="#" id="sign-out">Logout</a><br/>
+              <%= link_to "Subscribe to PRO", new_pro_subscription_path %>
+            <% else %>
+              <a href="#" id="sign-in"><img src="/images/fb-login-button.png"/></a><br/>
+              Login with Facebook to create your own private gallery.
+            <% end %>
          </div>
        </div>
        <%= yield %>
@@ -123,14 +118,13 @@
        </div>
      </div>
 
-     <script type="text/javascript">
-       var uvOptions = {};
-(function() {
- var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
- uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/CO2c8Hj1kTkcbnAqhI6lqw.js';
- var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
- })();
-</script>
-
+  <script type="text/javascript">
+    var uvOptions = {};
+    (function() {
+      var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+      uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/CO2c8Hj1kTkcbnAqhI6lqw.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+    })();
+  </script>
 </body>
 </html>
