@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112235706) do
+ActiveRecord::Schema.define(:version => 20130211164839) do
 
   create_table "test_mail_users", :force => true do |t|
     t.integer  "test_mail_id"
@@ -39,16 +39,20 @@ ActiveRecord::Schema.define(:version => 20121112235706) do
   add_index "test_mails", ["token"], :name => "index_test_mails_on_token", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "mail",                               :null => false
-    t.string   "token",                              :null => false
+    t.string   "mail",                                      :null => false
+    t.string   "token",                                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "subscribed",       :default => true
+    t.boolean  "subscribed",              :default => true
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.date     "subscription_start_date"
+    t.string   "subscription_profile_id"
+    t.string   "subscription_token"
+    t.date     "subscription_start_at"
   end
 
   add_index "users", ["token"], :name => "index_users_on_token"

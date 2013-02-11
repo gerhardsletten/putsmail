@@ -9,6 +9,7 @@ gem "backbone-on-rails"
 gem "newrelic_rpm"
 gem "url2png"
 gem "amazon-ses-mailer"
+gem "paypal-recurring"
 
 
 group :production do

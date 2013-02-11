@@ -55,7 +55,6 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
       $("#test_mail_subject").val @model.get("subject")
 
     @updatePreview()
-    window.xxx = @model
     $("#test_email_in_gallery").attr "checked", @model.get("in_gallery")
     $("#test_email_make_css_inline").attr "checked", @model.get("make_css_inline")
     $("#recipients_container").html @testMailUsersView.render().el

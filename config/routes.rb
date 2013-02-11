@@ -20,6 +20,10 @@ Putsmail::Application.routes.draw do
     match "auth/failure", to: redirect("/")
     match "signout", to: "sessions#destroy", as: "signout"
     resources :tests, controller: "test_mails", only: [:index, :show]
+    resources :subscriptions, only: [:new, :create]
+    get "/paypal/thank_you" , to: "subscriptions#thank_you"
+    get "/paypal/canceled"  , to: "subscriptions#canceled"
+    get "/paypal/ipn"       , to: "subscriptions#ipn"
   end
 
   get "/test_mails/:id" , to: "site#old_gallery_item"

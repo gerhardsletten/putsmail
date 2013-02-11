@@ -61,7 +61,8 @@
     <div id="fb-root"></div>
     <script type="application/container-content" id="login-container-content">
     <% if current_user %>
-      <a href="/pro/tests"><%= current_user.name %></a>&nbsp;|&nbsp;<a href="#" id="sign-out">Logout</a>
+      <a href="/pro/tests"><%= current_user.name %></a>&nbsp;|&nbsp;<a href="#" id="sign-out">Logout</a><br/>
+      <%= link_to "Subscribe to PRO", new_pro_subscription_path %>
     <% else %>
       <a href="#" id="sign-in"><img src="/images/fb-login-button.png"/></a><br/>
       Login with Facebook to create your own private gallery.
@@ -114,10 +115,6 @@
              <span class='st_fbrec' displayText='Facebook Recommend' st_url="http://putsmail.com" st_title="Test in real time your HTML emails for campaigns, newsletters and others before sending them."></span>
              </p>
              <span class="label label-success">Tests sent: <%= number_with_delimiter @total_sent_count %></span>
-            <!--<h4>Awesome e-mails</h4>
-             <p>
-             <span class="label label-success">Total sent: <%= number_with_delimiter @total_sent_count %></span>
-             </p>-->
            </div>
            <div class="span3">
              <p class="pull-right"><a href="#" id="btn_back_to_top">Back to top</a></p>
