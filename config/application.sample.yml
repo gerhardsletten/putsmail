@@ -1,0 +1,9 @@
+development:
+  paypal:
+    username:   "seller_1354580504_biz_api1.pablocantero.com"
+    password:   "1354580523"
+    signature:  "AiPC9BjkCyDFQXbSkoZcgqH3hpacAHqtmvCOKJGgALmZG7.b5SzXsIQF"
+    return_url: "http://localhost:3000/pro/paypal/thank_you"
+    cancel_url: "http://localhost:3000/pro/paypal/canceled"
+    ipn_url:    "http://localhost:3000/pro/paypal/ipn"
+
