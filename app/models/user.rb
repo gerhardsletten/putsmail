@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   def update_subscription subscription
     @subscription_profile_id = subscription.profile_id
     @subscription_token      = subscription.token
-    @subscription_start_at   = subscription.start_at
+    @subscription_started_at = subscription.started_at
     save
   end
 

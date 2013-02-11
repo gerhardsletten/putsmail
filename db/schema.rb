@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211164839) do
+ActiveRecord::Schema.define(:version => 20130211184236) do
 
   create_table "test_mail_users", :force => true do |t|
     t.integer  "test_mail_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20130211164839) do
     t.date     "subscription_start_date"
     t.string   "subscription_profile_id"
     t.string   "subscription_token"
-    t.date     "subscription_start_at"
+    t.date     "subscription_started_at"
   end
 
   add_index "users", ["token"], :name => "index_users_on_token"

@@ -7,7 +7,7 @@ class PaypalSubscriptionException < Exception; end
 class PaypalSubscription
   attr_accessor :token, :payer_id, :reference
 
-  attr_reader :profile_id, :start_at
+  attr_reader :profile_id, :started_at
 
   def initialize token=nil, payer_id=nil, reference=nil
     @token     = token
@@ -16,14 +16,14 @@ class PaypalSubscription
   end
 
   def create_recurring_profile
-    @start_at = Time.now
+    @started_at = Time.now
     ppr = PayPal::Recurring.new({
       token:        @token,
       reference:    @reference,
       payer_id:     @payer_id,
       frequency:    1,
       period:       :monthly,
-      start_at:     @start_at,
+      start_at:     @started_at,
       failed:       1,
       outstanding:  :next_billing,
       description:  CONFIG["paypal"]["description"],
