@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
 .test_mail_cc {
   opacity: 0.5;
   display: none;
