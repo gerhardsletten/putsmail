@@ -20,4 +20,8 @@
     </tbody>
   </table>
 </div>
+<% else: %>
+<div class="alert alert-success alert-block fade in" style="background-color: #FFF">
+Congratulations, no issues found!
+</div>
 <% end %>
