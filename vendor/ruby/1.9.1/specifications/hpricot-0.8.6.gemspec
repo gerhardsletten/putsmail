@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--quiet", "--title", "The Hpricot Reference", "--main", "README.md", "--inline-source"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "hobix"
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "a swift, liberal HTML parser with a fantastic library"
 
   if s.respond_to? :specification_version then

@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = ["flyerhzm@gmail.com"]
   s.homepage = "http://github.com/flyerhzm/bullet"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "A rails plugin to kill N+1 queries and unused eager loading."
 
   if s.respond_to? :specification_version then

@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://pupeno.github.com/assert_difference/"
   s.require_paths = ["lib"]
   s.rubyforge_project = "assert_difference"
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "Like Rails' assert_difference, but more powerful"
 
   if s.respond_to? :specification_version then

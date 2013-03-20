@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = "lee@jarvis.co"
   s.homepage = "http://github.com/injekt/slop"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "Option gathering made easy"
 
   if s.respond_to? :specification_version then

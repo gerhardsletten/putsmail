@@ -43,9 +43,9 @@ sitearchdir = $(sitelibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 
-CC = /usr/bin/gcc-4.2
+CC = gcc-4.2
 CXX = g++
-LIBRUBY = $(LIBRUBY_SO)
+LIBRUBY = $(LIBRUBY_A)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
 LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
 LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
@@ -57,7 +57,7 @@ cflags   =  $(optflags) $(debugflags) $(warnflags)
 optflags = -O3
 debugflags = -ggdb
 warnflags = -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wshorten-64-to-32 -Wno-long-long
-CFLAGS   = -fno-common $(cflags)  -fno-common -pipe 
+CFLAGS   = -fno-common $(cflags)  -pipe 
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
 CPPFLAGS = -DRUBY_EXTCONF_H=\"$(RUBY_EXTCONF_H)\" -I/Users/pablo/.rvm/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags) -I/usr/include
@@ -73,8 +73,8 @@ EXEEXT =
 
 RUBY_BASE_NAME = ruby
 RUBY_INSTALL_NAME = ruby
-RUBY_SO_NAME = ruby.1.9.1
-arch = x86_64-darwin11.3.0
+RUBY_SO_NAME = ruby
+arch = x86_64-darwin12.2.0
 sitearch = $(arch)
 ruby_version = 1.9.1
 ruby = /Users/pablo/.rvm/rubies/ruby-1.9.2-p320/bin/ruby
@@ -104,7 +104,7 @@ extout =
 extout_prefix = 
 target_prefix = 
 LOCAL_LIBS = 
-LIBS = $(LIBRUBYARG_SHARED) -lpq  -lpthread -ldl -lobjc 
+LIBS =  -lpq  -lpthread -ldl -lobjc 
 SRCS = pg.c pg_connection.c pg_result.c
 OBJS = pg.o pg_connection.o pg_result.o
 TARGET = pg_ext
@@ -114,8 +114,8 @@ STATIC_LIB =
 
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/pablo/workspace/putsmail.com/vendor/ruby/1.9.1/gems/pg-0.14.1/lib$(target_prefix)
-RUBYARCHDIR = /Users/pablo/workspace/putsmail.com/vendor/ruby/1.9.1/gems/pg-0.14.1/lib$(target_prefix)
+RUBYLIBDIR = /Users/pablo/workspace/putsmail/vendor/ruby/1.9.1/gems/pg-0.14.1/lib$(target_prefix)
+RUBYARCHDIR = /Users/pablo/workspace/putsmail/vendor/ruby/1.9.1/gems/pg-0.14.1/lib$(target_prefix)
 HDRDIR        = $(rubyhdrdir)/ruby$(target_prefix)
 ARCHHDRDIR    = $(rubyhdrdir)/$(arch)/ruby$(target_prefix)
 

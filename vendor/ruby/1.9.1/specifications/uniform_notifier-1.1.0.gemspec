@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://rubygems.org/gems/uniform_notifier"
   s.require_paths = ["lib"]
   s.rubyforge_project = "uniform_notifier"
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "uniform notifier for rails logger, customized logger, javascript alert, javascript console, growl and xmpp"
 
   if s.respond_to? :specification_version then

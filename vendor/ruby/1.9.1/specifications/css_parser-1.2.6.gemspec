@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/alexdunae/css_parser"
   s.rdoc_options = ["--all", "--inline-source", "--line-numbers", "--charset", "utf-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "Ruby CSS parser."
 
   if s.respond_to? :specification_version then

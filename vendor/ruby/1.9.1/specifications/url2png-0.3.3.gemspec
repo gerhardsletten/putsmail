@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/robinhoudmeyers/url2png-gem"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "A ruby gem wrapping the url2png.com screenshot service API"
 
   if s.respond_to? :specification_version then

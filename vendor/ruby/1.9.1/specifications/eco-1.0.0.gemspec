@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = "sstephenson@gmail.com"
   s.homepage = "https://github.com/sstephenson/ruby-eco"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "Ruby Eco Compiler (Embedded CoffeeScript templates)"
 
   if s.respond_to? :specification_version then

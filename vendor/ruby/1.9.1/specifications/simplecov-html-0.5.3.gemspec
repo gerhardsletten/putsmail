@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/colszowka/simplecov-html"
   s.require_paths = ["lib"]
   s.rubyforge_project = "simplecov-html"
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "Default HTML formatter for SimpleCov code coverage tool for ruby 1.9+"
 
   if s.respond_to? :specification_version then

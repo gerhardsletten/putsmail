@@ -43,9 +43,9 @@ sitearchdir = $(sitelibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 
-CC = /usr/bin/gcc-4.2
+CC = gcc-4.2
 CXX = g++
-LIBRUBY = $(LIBRUBY_SO)
+LIBRUBY = $(LIBRUBY_A)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
 LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
 LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
@@ -57,10 +57,10 @@ cflags   =  $(optflags) $(debugflags) $(warnflags)
 optflags = -O3
 debugflags = -ggdb
 warnflags = -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wshorten-64-to-32 -Wno-long-long
-CFLAGS   = -fno-common $(cflags)  -fno-common -pipe  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline 
+CFLAGS   = -fno-common $(cflags)  -pipe  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline 
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS = -DHAVE_XMLHASFEATURE -DHAVE_XMLFIRSTELEMENTCHILD -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETPARSERSTRUCTUREDERRORS -I/usr/local/Cellar/libxml2/2.8.0/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I/Users/pablo/.rvm/rubies/ruby-1.9.2-p320/include/libxml2 -I/opt/local/include -I/usr/local/include -I/Users/pablo/.rvm/rubies/ruby-1.9.2-p320/include -I/usr/include -I/usr/include/libxml2 -I/Users/pablo/.rvm/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
+CPPFLAGS = -DHAVE_XMLHASFEATURE -DHAVE_XMLFIRSTELEMENTCHILD -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETPARSERSTRUCTUREDERRORS -I/usr/local/opt/libxml2/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I/Users/pablo/.rvm/rubies/ruby-1.9.2-p320/include/libxml2 -I/opt/local/include -I/usr/local/include -I/Users/pablo/.rvm/rubies/ruby-1.9.2-p320/include -I/usr/include -I/usr/include/libxml2 -I/Users/pablo/.rvm/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
 CXXFLAGS = $(CFLAGS) $(cxxflags)
 ldflags  = -L. -L/usr/local/lib
 dldflags = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -Wl,-flat_namespace
@@ -73,8 +73,8 @@ EXEEXT =
 
 RUBY_BASE_NAME = ruby
 RUBY_INSTALL_NAME = ruby
-RUBY_SO_NAME = ruby.1.9.1
-arch = x86_64-darwin11.3.0
+RUBY_SO_NAME = ruby
+arch = x86_64-darwin12.2.0
 sitearch = $(arch)
 ruby_version = 1.9.1
 ruby = /Users/pablo/.rvm/rubies/ruby-1.9.2-p320/bin/ruby
@@ -92,8 +92,8 @@ COPY = cp
 
 preload = 
 
-libpath = . $(libdir) /usr/local/Cellar/libxml2/2.8.0/lib /opt/local/lib /usr/local/lib /Users/pablo/.rvm/rubies/ruby-1.9.2-p320/lib /usr/lib /Users/pablo/.rvm/usr/lib
-LIBPATH =  -L. -L$(libdir) -L/usr/local/Cellar/libxml2/2.8.0/lib -L/opt/local/lib -L/usr/local/lib -L/Users/pablo/.rvm/rubies/ruby-1.9.2-p320/lib -L/usr/lib -L/Users/pablo/.rvm/usr/lib
+libpath = . $(libdir) /usr/local/opt/libxml2/lib /opt/local/lib /usr/local/lib /Users/pablo/.rvm/rubies/ruby-1.9.2-p320/lib /usr/lib /Users/pablo/.rvm/usr/lib
+LIBPATH =  -L. -L$(libdir) -L/usr/local/opt/libxml2/lib -L/opt/local/lib -L/usr/local/lib -L/Users/pablo/.rvm/rubies/ruby-1.9.2-p320/lib -L/usr/lib -L/Users/pablo/.rvm/usr/lib
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -104,7 +104,7 @@ extout =
 extout_prefix = 
 target_prefix = /nokogiri
 LOCAL_LIBS = 
-LIBS = $(LIBRUBYARG_SHARED) -lexslt -lxslt -lxml2 -liconv  -lpthread -ldl -lobjc  
+LIBS =  -lexslt -lxslt -lxml2 -liconv  -lpthread -ldl -lobjc  
 SRCS = html_document.c html_element_description.c html_entity_lookup.c html_sax_parser_context.c html_sax_push_parser.c nokogiri.c xml_attr.c xml_attribute_decl.c xml_cdata.c xml_comment.c xml_document.c xml_document_fragment.c xml_dtd.c xml_element_content.c xml_element_decl.c xml_encoding_handler.c xml_entity_decl.c xml_entity_reference.c xml_io.c xml_libxml2_hacks.c xml_namespace.c xml_node.c xml_node_set.c xml_processing_instruction.c xml_reader.c xml_relax_ng.c xml_sax_parser.c xml_sax_parser_context.c xml_sax_push_parser.c xml_schema.c xml_syntax_error.c xml_text.c xml_xpath_context.c xslt_stylesheet.c
 OBJS = html_document.o html_element_description.o html_entity_lookup.o html_sax_parser_context.o html_sax_push_parser.o nokogiri.o xml_attr.o xml_attribute_decl.o xml_cdata.o xml_comment.o xml_document.o xml_document_fragment.o xml_dtd.o xml_element_content.o xml_element_decl.o xml_encoding_handler.o xml_entity_decl.o xml_entity_reference.o xml_io.o xml_libxml2_hacks.o xml_namespace.o xml_node.o xml_node_set.o xml_processing_instruction.o xml_reader.o xml_relax_ng.o xml_sax_parser.o xml_sax_parser_context.o xml_sax_push_parser.o xml_schema.o xml_syntax_error.o xml_text.o xml_xpath_context.o xslt_stylesheet.o
 TARGET = nokogiri
@@ -114,8 +114,8 @@ STATIC_LIB =
 
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/pablo/workspace/putsmail.com/vendor/ruby/1.9.1/gems/nokogiri-1.5.5/lib$(target_prefix)
-RUBYARCHDIR = /Users/pablo/workspace/putsmail.com/vendor/ruby/1.9.1/gems/nokogiri-1.5.5/lib$(target_prefix)
+RUBYLIBDIR = /Users/pablo/workspace/putsmail/vendor/ruby/1.9.1/gems/nokogiri-1.5.5/lib$(target_prefix)
+RUBYARCHDIR = /Users/pablo/workspace/putsmail/vendor/ruby/1.9.1/gems/nokogiri-1.5.5/lib$(target_prefix)
 HDRDIR        = $(rubyhdrdir)/ruby$(target_prefix)
 ARCHHDRDIR    = $(rubyhdrdir)/$(arch)/ruby$(target_prefix)
 

@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://premailer.dialect.ca/"
   s.rdoc_options = ["--all", "--inline-source", "--line-numbers", "--charset", "utf-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "Preflight for HTML e-mail."
 
   if s.respond_to? :specification_version then
