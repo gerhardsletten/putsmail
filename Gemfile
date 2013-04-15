@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 
+#ruby=jruby-1.7.3
 ruby "1.9.3", :engine => "jruby", :engine_version => "1.7.3"
 
 gem "rails", "3.1.0"
