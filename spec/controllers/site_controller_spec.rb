@@ -8,13 +8,5 @@ describe SiteController do
       expect(response).to be_success
     end
   end
-
-  describe "#old_index" do
-    it "redirects to the tests/:token path" do
-      get "old_index", token: "0"
-
-      expect(response).to redirect_to("/tests/0")
-    end
-  end
-
 end
+
