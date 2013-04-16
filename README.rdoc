@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/phstc/putsmail.png)](https://codeclimate.com/github/phstc/putsmail)
+
 == Puts Mail
 
 It's a mail test tool to test your mails before sending them
