@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/phstc/putsmail.png)](https://travis-ci.org/phstc/putsmail)
+
 [![Code Climate](https://codeclimate.com/github/phstc/putsmail.png)](https://codeclimate.com/github/phstc/putsmail)
 
 ## Puts Mail
