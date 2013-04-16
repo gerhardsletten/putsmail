@@ -28,3 +28,4 @@ class Facebook
     @me ||= JSON.parse(open("https://graph.facebook.com/me?access_token=#{@access_token}").read)
   end
 end
+
