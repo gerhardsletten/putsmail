@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(:version => 20130211184236) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.date     "subscription_start_date"
     t.string   "subscription_profile_id"
     t.string   "subscription_token"
     t.date     "subscription_started_at"

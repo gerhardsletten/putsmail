@@ -1,9 +1,8 @@
 source "http://rubygems.org"
 
-#ruby=jruby-1.7.3
-ruby "1.9.3", :engine => "jruby", :engine_version => "1.7.3"
+# ruby "1.9.3", :engine => "jruby", :engine_version => "1.7.3"
 
-gem "rails", "3.1.0"
+gem "rails", "~> 3.1.0"
 gem "jquery-rails", ">= 0.2.6"
 gem "hpricot"
 gem "premailer"
@@ -17,14 +16,14 @@ gem "puma"
 
 
 group :production do
-  # gem "pg"
-  gem "activerecord-jdbcpostgresql-adapter"
+  gem "pg"
+  # gem "activerecord-jdbcpostgresql-adapter"
 end
 
 group :development do
   gem "rspec-rails", "~> 2.4"
-  # gem "sqlite3-ruby", :require => "sqlite3"
-  gem "activerecord-jdbcsqlite3-adapter"
+  gem "sqlite3-ruby", :require => "sqlite3"
+  # gem "activerecord-jdbcsqlite3-adapter"
   gem "bullet"
   gem "capybara"
 end
