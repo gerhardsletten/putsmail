@@ -27,6 +27,8 @@ group :development do
   gem "activerecord-jdbcsqlite3-adapter", platform: :jruby
   gem "bullet"
   gem "capybara"
+  gem "guard"
+  gem "guard-jruby-rspec"
 end
 
 group :development, :test do
