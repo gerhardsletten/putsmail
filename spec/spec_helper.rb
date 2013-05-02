@@ -4,18 +4,22 @@ require "spork"
 #uncomment the following line to use spork with the debugger
 #require "spork/ext/ruby-debug"
 
+# https://github.com/colszowka/simplecov/issues/42#issuecomment-4440284
+def add_simple_conv
+  return if ENV["DRB"]
+  return if defined? JRUBY_VERSION
+  require "simplecov"
+  SimpleCov.start "rails" do
+    add_filter "/vendor/ruby"
+  end
+end
+
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
-  # https://github.com/colszowka/simplecov/issues/42#issuecomment-4440284
-  unless ENV["DRB"]
-    require "simplecov"
-    SimpleCov.start "rails" do
-      add_filter "/vendor/ruby"
-    end
-  end
+  add_simple_conv
 
   # This file is copied to spec/ when you run "rails generate rspec:install"
   ENV["RAILS_ENV"] ||= "test"
@@ -73,13 +77,7 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-  # https://github.com/colszowka/simplecov/issues/42#issuecomment-4440284
-  if ENV["DRB"]
-    require "simplecov"
-    SimpleCov.start "rails" do
-      add_filter "/vendor/ruby"
-    end
-  end
+  add_simple_conv
   FactoryGirl.reload
 end
 
