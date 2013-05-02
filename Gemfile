@@ -38,10 +38,12 @@ end
 
 group :test do
   gem "factory_girl_rails"
-  gem "capybara"
+  # gem "capybara"
   gem "assert_difference"
   gem "simplecov", :require => false
   gem "spork", "> 0.9.0.rc"
+  gem "capybara-webkit"
+  gem "database_cleaner"
 end
 
 group :assets do
