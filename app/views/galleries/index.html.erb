@@ -1,7 +1,7 @@
 <div class="container" id="test_mail_form_container">
   <div class="span10">
     <ul class="thumbnails">
-      <% @emails.find_each do | email | %>
+      <% @emails.each do | email | %>
         <li class="span3" style="<%= cycle "clear:both", "", "" %>">
         <div class="thumbnail">
           <a href="<%= gallery_path(email) %>"><img alt="<%= "Screenshot #{email.id}" %>" src="<%= url2png_image_url(gallery_url(email, updated_at: email.updated_at.to_i), "260x180") %>" class="lazy" width="260" height="180"></a>
