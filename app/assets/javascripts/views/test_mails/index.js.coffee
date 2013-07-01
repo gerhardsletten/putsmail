@@ -124,9 +124,9 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
     @model.save data,
       wait: true
       success: (model, response) =>
-        @closeNoty true
+        @closeNoty()
       error: (model, response) =>
-        @closeNoty true
+        @closeNoty()
         @handleError model, response
 
   removeTestMail: ->
@@ -147,9 +147,8 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
             input.parent().parent().addClass "error"
             input.after "<span class=\"help-inline error_message\">#{message}</span>"
 
-  closeNoty: (wait=false)->
-    timeout = if (wait) then 2000 else 1
-    setTimeout (-> $.noty.close()), timeout
+  closeNoty: ->
+    $.noty.close()
 
   showNoty: (message) ->
     $.noty text: message, speed: 100, closeable: true, type: "alert", layout: "topRight", timeout: false, theme: "mitgux"
