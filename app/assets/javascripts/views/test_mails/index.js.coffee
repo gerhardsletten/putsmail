@@ -148,16 +148,8 @@ class Putsmail.Views.TestMailsIndex extends Backbone.View
             input.after "<span class=\"help-inline error_message\">#{message}</span>"
 
   closeNoty: ->
-    $("#button_send, #button_check_mail").each  ->
-      $(this).text $(this).attr("data-text")
-      $(this).removeAttr "disabled"
-    $.noty.close()
+    setTimeout (-> $.noty.close()), 1000
 
   showNoty: (message) ->
-    $("#button_send, #button_check_mail").each  ->
-      $(this).attr "data-text", $(this).text()
-      $(this).text "..."
-      $(this).attr "disabled", "disabled"
-
-    $.noty text: message, speed: 100, closeable: true, type: "alert", layout: "topRight", timeout: false, theme: "mitgux"
+    $.noty text: message, speed: 500, closeable: true, type: "alert", layout: "topRight", timeout: false, theme: "mitgux"
 
