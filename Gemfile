@@ -1,8 +1,5 @@
 source "http://rubygems.org"
 
-#ruby=jruby-1.7.3
-ruby "1.9.3", :engine => "jruby", :engine_version => "1.7.3"
-
 gem "rails", "~> 3.1.0"
 gem "jquery-rails", ">= 0.2.6"
 gem "hpricot"
@@ -23,7 +20,7 @@ end
 
 group :development do
   gem "rspec-rails", "~> 2.4"
-  gem "sqlite3-ruby", :require => "sqlite3", platform: :ruby
+  gem "sqlite3-ruby", require: "sqlite3", platform: :ruby
   gem "activerecord-jdbcsqlite3-adapter", platform: :jruby
   gem "bullet"
   gem "capybara"
@@ -38,7 +35,6 @@ end
 
 group :test do
   gem "factory_girl_rails"
-  # gem "capybara"
   gem "assert_difference"
   gem "simplecov", :require => false
   gem "spork", "> 0.9.0.rc"
