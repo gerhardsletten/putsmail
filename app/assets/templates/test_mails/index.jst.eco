@@ -58,7 +58,7 @@
   <div class="control-group">
     <div class="controls">
       <div style="background-color: #FFF; text-align: center">
-        <a href="#" class="close" id="new_window_preview"><i class="icon-resize-vertical"></i></a>
+        <a href="#" class="close" id="new_window_preview"><i class="icon-share"></i></a>
         <iframe id="body_preview" class="desktop"></iframe>
       </div>
     </div>

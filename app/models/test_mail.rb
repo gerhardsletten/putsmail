@@ -1,8 +1,11 @@
 class TestMail < ActiveRecord::Base
   has_many :test_mail_users, dependent: :destroy
-  has_many :active_test_mail_users, conditions: ["active = ?", true], class_name: "TestMailUser"
   has_many :users, through: :test_mail_users
-  has_many :active_users, through: :active_test_mail_users, source: :user, conditions: ["subscribed = ?", true]
+
+  has_many :active_test_mail_users, class_name: "TestMailUser",
+    conditions: { active: true }
+  has_many :active_users, through: :active_test_mail_users, source: :user,
+    conditions: { subscribed: true }
 
   before_create :assign_unique_token
 
@@ -14,7 +17,7 @@ class TestMail < ActiveRecord::Base
 
   attr_accessor :dispatch
 
-  scope :public_mails, where("body != ? AND body IS NOT NULL AND body NOT LIKE ? AND in_gallery = ?", 
+  scope :public_mails, where("body != ? AND body IS NOT NULL AND body NOT LIKE ? AND in_gallery = ?",
                              "", "%<li>Do not use JavaScript.</li>%", true).
                              limit(21).
                              order("updated_at DESC")
@@ -47,3 +50,4 @@ class TestMail < ActiveRecord::Base
     self.token && TestMail.count(conditions: {token: self.token}) == 0
   end
 end
+

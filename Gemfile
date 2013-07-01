@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 gem "rails", "~> 3.1.0"
 gem "jquery-rails", ">= 0.2.6"
@@ -15,17 +15,14 @@ gem "puma"
 
 group :production do
   gem "pg", platform: :ruby
-  gem "activerecord-jdbcpostgresql-adapter", platform: :jruby
 end
 
 group :development do
   gem "rspec-rails", "~> 2.4"
-  gem "sqlite3-ruby", require: "sqlite3", platform: :ruby
-  gem "activerecord-jdbcsqlite3-adapter", platform: :jruby
+  gem "sqlite3-ruby", require: "sqlite3"
   gem "bullet"
   gem "capybara"
   gem "guard"
-  gem "guard-jruby-rspec"
 end
 
 group :development, :test do
