@@ -6,7 +6,7 @@ describe SubscriptionListenerController do
   let(:user)      { stub_model User, mail: user_mail, :subscribed= => true }
 
   before do
-    User.stub(:find_by_mail).with(user_mail).and_return(user)
+    User.stub(:find_by_mail).with(user_mail).and_return user
   end
 
   describe "#subscribe" do
@@ -20,7 +20,7 @@ describe SubscriptionListenerController do
       User.stub find_by_mail: nil
 
       post "subscribe", x_from_header: [""]
-      
+
       expect(response).to be_success
     end
   end
@@ -41,3 +41,4 @@ describe SubscriptionListenerController do
     end
   end
 end
+
