@@ -73,7 +73,7 @@
     <div class="controls">
       <label class="checkbox">
         <input type="checkbox" id="test_email_in_gallery" name="test_email_in_gallery" checked="checked">
-        Show how awesome your e-mail is, share it adding to <a href="/gallery">Gallery</a>.
+        Show how awesome your e-mail is, share it adding to <a href="/galleries">Gallery</a>.
       </label>
     </div>
   </div>
