@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211184236) do
+ActiveRecord::Schema.define(:version => 20131003005848) do
 
   create_table "test_mail_users", :force => true do |t|
     t.integer  "test_mail_id"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130211184236) do
     t.text     "body"
     t.string   "token"
     t.integer  "sent_count",      :default => 0
-    t.boolean  "in_gallery",      :default => true
+    t.boolean  "in_gallery",      :default => false
     t.boolean  "make_css_inline", :default => true
     t.integer  "user_id"
   end
