@@ -17,10 +17,13 @@ class TestMail < ActiveRecord::Base
 
   attr_accessor :dispatch
 
-  scope :public_mails, where("body != ? AND body IS NOT NULL AND body NOT LIKE ? AND in_gallery = ?",
-                             "", "%<li>Do not use JavaScript.</li>%", true).
+  # scope :public_mails, where('body != ? AND body IS NOT NULL AND body NOT LIKE ? AND in_gallery = ?',
+                             # '', '%<li>Do not use JavaScript.</li>%', true).
+                             # limit(21).
+                             # order('updated_at DESC')
+  scope :public_mails, where('in_gallery = ?', true).
                              limit(21).
-                             order("updated_at DESC")
+                             order('updated_at DESC')
 
   def self.emails_sent_count
     # 32977 isn't a magic number, it is the total sent in the Puts Mail V1
