@@ -15,3 +15,4 @@ http://putsmail.com
 ## Do you want to improve Puts Mail?
 
 You're welcome to make your contributions and send them as a pull request
+
